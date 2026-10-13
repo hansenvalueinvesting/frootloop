@@ -2,6 +2,9 @@ name: iOS build
 
 on:
   push:
+    # Doc-only pushes don't change the app; skipping them also stops them cancelling an in-flight build.
+    paths-ignore:
+      - '**.md'
   workflow_dispatch:
 
 permissions:
