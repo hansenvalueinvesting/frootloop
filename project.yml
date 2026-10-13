@@ -1,0 +1,26 @@
+name: Frootloop
+options:
+  bundleIdPrefix: com.hansen
+  deploymentTarget:
+    iOS: "17.0"
+targets:
+  Frootloop:
+    type: application
+    platform: iOS
+    sources: [Frootloop]
+    info:
+      path: Frootloop/Info.plist
+      properties:
+        CFBundleDisplayName: Frootloop
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSBluetoothAlwaysUsageDescription: Frootloop connects to your WHOOP strap to read your heart rate.
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.hansen.frootloop
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: 5.0
+        TARGETED_DEVICE_FAMILY: 1
