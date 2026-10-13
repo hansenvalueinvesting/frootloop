@@ -1,6 +1,6 @@
 # frootloop
 
-A personal, offline iPhone app for the WHOOP 5.0 strap — a clone of [NOOP](https://github.com/ryanbr/noop)'s iOS app
+A personal, offline iPhone app for the WHOOP 5.0 strap — modified version of [NOOP](https://github.com/ryanbr/noop)'s iOS app
 (PolyForm Noncommercial 1.0.0, see `LICENSE` / `NOTICE`). Personal, non-commercial use only.
 
 ## Changes from NOOP
