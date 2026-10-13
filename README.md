@@ -22,9 +22,11 @@ A personal, offline iPhone app for the WHOOP 5.0 strap — a clone of [NOOP](htt
 GitHub Actions (`.github/workflows/ios.yml`) generates the project with XcodeGen and builds an unsigned `Frootloop.ipa`
 on every push. Pushes to `main` also publish it to the `latest` release.
 
-## Install on iPhone
-Sideload the `.ipa` with SideStore (or AltStore), which signs it on-device with your free Apple ID (needs a computer once
-for SideStore's initial setup; it re-signs every 7 days on the phone).
+## Install on iPhone (Sideloadly)
+1. Download `Frootloop.ipa` from the `latest` release.
+2. In Sideloadly on your computer, drop in the `.ipa`, sign in with your Apple ID, and Start with the iPhone connected.
+3. A free Apple ID signature lasts 7 days: re-run Sideloadly (or enable its auto-refresh, which needs the computer on the same Wi-Fi).
+4. To update, install the newer `.ipa` the same way; it replaces the app and keeps your data.
 
 ## Pairing a WHOOP 5.0
 Close the official WHOOP app, tap the band until its LEDs flash blue, then use the top-right control → add a WHOOP 5.0 / MG.

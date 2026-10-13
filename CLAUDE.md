@@ -7,3 +7,4 @@
   `StrandiOS/App/StrandiOSApp.swift`, corner button in `StrandiOS/App/RootTabView.swift`, connect gate
   `connectionConfiguredKey` in `Strand/BLE/BLEManager.swift`, demo data in `StrandiOS/App/DemoDataView.swift`
   + `Strand/Data/AppleDemoSeeder.swift`, now compiled into Release).
+- Hansen installs with Sideloadly (computer-based); no in-app or SideStore update feed. New builds = install the latest-release .ipa via Sideloadly.
