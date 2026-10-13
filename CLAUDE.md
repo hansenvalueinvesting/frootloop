@@ -1,7 +1,7 @@
 # Frootloop — working notes
 
 - iPhone-only clone of NOOP's iOS app for a WHOOP 5.0. Upstream: https://github.com/ryanbr/noop
-- Git workflow: develop on the session branch, then merge everything into `main` and push `main`.
+- Git workflow: ALWAYS merge every commit into `main` and push `main` immediately (Hansen's standing rule), plus the session branch.
 - No local Xcode: CI (`.github/workflows/ios.yml`, macos-26) is the compiler. Check the run after every push.
 - Frootloop deviations from NOOP are marked with `Frootloop:` comments (onboarding removed in
   `StrandiOS/App/StrandiOSApp.swift`, corner button in `StrandiOS/App/RootTabView.swift`, connect gate
