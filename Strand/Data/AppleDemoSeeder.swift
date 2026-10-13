@@ -1,8 +1,9 @@
-#if DEBUG
 import Foundation
 import WhoopStore
 
-// MARK: - DEBUG-only demo seed (Apple parity with Android's DemoSeeder)
+// MARK: - Demo seed (Apple parity with Android's DemoSeeder)
+// Frootloop: compiled into Release too, so the More → Demo data screen can load and remove this
+// dataset on a sideloaded build. The `--demo-seed` launch path below stays DEBUG-only (AppModel).
 // Seeds a comprehensive, self-contained synthetic dataset so a DEBUG build can walk every screen —
 // Today, Sleep, Trends, Workouts, Health, Stress, Insights, Explore — with no strap and no import.
 // This is the Apple twin of `android/.../data/DemoSeeder.kt` (same RNG seed, same physiology, same
@@ -39,6 +40,21 @@ enum AppleDemoSeeder {
         guard existing.isEmpty else { return }
         do { try await seed(into: store) }
         catch { NSLog("AppleDemoSeeder: seed failed — \(error)") }
+    }
+
+    /// Frootloop: user-facing load (More → Demo data). Seeds the synthetic dataset only into an empty
+    /// store; returns false and writes nothing when WHOOP daily data already exists.
+    static func loadDemo(into store: WhoopStore) async throws -> Bool {
+        let existing = (try? await store.dailyMetrics(deviceId: whoop, from: "0000-00-00", to: "9999-99-99")) ?? []
+        guard existing.isEmpty else { return false }
+        try await seed(into: store)
+        return true
+    }
+
+    /// Frootloop: removes everything the seed wrote (both demo device ids).
+    static func removeDemo(from store: WhoopStore) async throws {
+        try await store.deleteAllData(deviceId: whoop)
+        try await store.deleteAllData(deviceId: apple)
     }
 
     /// DEBUG/demo-only: so the Devices screen renders with content under `--demo-seed`, pair a second
@@ -293,4 +309,3 @@ private extension Double {
     func clamped(_ lo: Double, _ hi: Double) -> Double { Swift.min(Swift.max(self, lo), hi) }
     func atLeast(_ lo: Double) -> Double { Swift.max(self, lo) }
 }
-#endif

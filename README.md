@@ -7,6 +7,7 @@ A personal, offline iPhone app for the WHOOP 5.0 strap — a clone of [NOOP](htt
 - **No onboarding.** No first-run wizard, Terms gate or automatic What's New sheet; launch goes straight to the dashboard.
 - **Starts disconnected.** The app never scans for or connects to a strap until you connect one yourself; until then it shows whatever data is already stored.
 - **Connection control in the top-right corner** of every tab. It shows link status and opens the Devices manager (pair / connect / disconnect / switch).
+- **Demo data.** More → Demo data loads NOOP's synthetic 120-day dataset to try every screen without a strap, and removes it again.
 - iPhone only (macOS, Android and Watch targets removed). Bundle prefix `com.hansen.frootloop`.
 
 ## Layout
