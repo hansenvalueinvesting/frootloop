@@ -1,19 +1,29 @@
 # Frootloop
 
-A personal, offline iPhone app for the WHOOP 5.0 strap. No account, no cloud.
+A personal, offline iPhone app for the WHOOP 5.0 strap — a clone of [NOOP](https://github.com/ryanbr/noop)'s iOS app
+(PolyForm Noncommercial 1.0.0, see `LICENSE` / `NOTICE`). Personal, non-commercial use only.
 
-Protocol facts come from [NOOP](https://github.com/ryanbr/noop) (`docs/PROTOCOL_WHOOP5.md`).
+## Changes from NOOP
+- **No onboarding.** No first-run wizard, Terms gate or automatic What's New sheet; launch goes straight to the dashboard.
+- **Starts disconnected.** The app never scans for or connects to a strap until you connect one yourself; until then it shows whatever data is already stored.
+- **Connection control in the top-right corner** of every tab. It shows link status and opens the Devices manager (pair / connect / disconnect / switch).
+- iPhone only (macOS, Android and Watch targets removed). Bundle prefix `com.hansen.frootloop`.
 
-## Status
-- **Step 1 (current):** connect to the strap and show live heart rate (standard BLE 0x2A37, no bond needed).
+## Layout
+| Path | Contents |
+|---|---|
+| `Strand/` | Shared app code (screens, BLE, data); macOS-only files are excluded in `project.yml` |
+| `StrandiOS/` | iOS app shell (`App/StrandiOSApp.swift`, `App/RootTabView.swift`, `App/ConnectionCornerButton.swift`) |
+| `StrandiOSWidgets/`, `StrandiOSShared/` | Widgets / Live Activity extension and code shared with it |
+| `Packages/` | Protocol, storage, analytics, import, design packages |
 
 ## Build
-GitHub Actions builds an unsigned `Frootloop.ipa` on every push (macOS runner, XcodeGen from `project.yml`).
-Pushes to `main` publish it to the `latest` release.
+GitHub Actions (`.github/workflows/ios.yml`) generates the project with XcodeGen and builds an unsigned `Frootloop.ipa`
+on every push. Pushes to `main` also publish it to the `latest` release.
 
 ## Install on iPhone
-Sideload the `.ipa` with SideStore (or AltStore), which signs it on-device with your free Apple ID.
-The free signature lasts 7 days; SideStore refreshes it.
+Sideload the `.ipa` with SideStore (or AltStore), which signs it on-device with your free Apple ID (needs a computer once
+for SideStore's initial setup; it re-signs every 7 days on the phone).
 
-## Using it
-Close the official WHOOP app (or turn off Bluetooth on any other phone paired to the strap), open Frootloop, tap **Connect**.
+## Pairing a WHOOP 5.0
+Close the official WHOOP app, tap the band until its LEDs flash blue, then use the top-right control → add a WHOOP 5.0 / MG.
